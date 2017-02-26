@@ -12,4 +12,7 @@
  *
  *= require_self
  *= require bootstrap.min
+ *@import "materialize";
+ *= require material_icons
+ *@import "https://fonts.googleapis.com/icon?family=Material+Icons";
  */

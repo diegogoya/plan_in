@@ -1,4 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<h1>PlanIn</h1>
+
+<%= link_to "+", new_event_path, class: 'btn-floating btn-large waves-effect waves-light green'%>
+<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red" %>
+
