@@ -1,8 +1,20 @@
+
+<%= stylesheet_link_tag 'home_index', media: 'all' %>
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-<h1>PlanIn</h1>
+    <div class="row">
 
+      <div class="col s3">
+        <!-- Grey navigation panel -->
+      </div>
+
+      <div class="col s9">
+        <!-- Teal page content  -->
+      </div>
+
+    </div>
 <%= link_to "+", new_event_path, class: 'btn-floating btn-large waves-effect waves-light green'%>
 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red" %>
 

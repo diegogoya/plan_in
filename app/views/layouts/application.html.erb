@@ -9,6 +9,18 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo"><h1 class="logotitle">PlanIn</h1></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="">sass</a></li>
+            <li><a href="">sass <span class="new badge">4</span></a></li>
+            <li><a href=""><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red" %></a></li>
+          </ul>
+        </div>
+      </nav>
+    <% end %>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>

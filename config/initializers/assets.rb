@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( scaffolds.scss )
 Rails.application.config.assets.precompile += %w( home.scss )
 Rails.application.config.assets.precompile += %w( sessions_new.scss )
+Rails.application.config.assets.precompile += %w( home_index.css )

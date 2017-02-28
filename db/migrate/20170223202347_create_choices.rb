@@ -5,7 +5,7 @@ class CreateChoices < ActiveRecord::Migration[5.0]
       t.string :url
       t.boolean :selected
       t.float :price
-
+      t.references :task, index: true
       t.timestamps
     end
   end

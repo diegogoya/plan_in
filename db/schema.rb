@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 20170225151759) do
     t.string   "url"
     t.boolean  "selected"
     t.float    "price"
+    t.integer  "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_choices_on_task_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -42,8 +44,10 @@ ActiveRecord::Schema.define(version: 20170225151759) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
+    t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_tasks_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
