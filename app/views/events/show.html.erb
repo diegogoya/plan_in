@@ -12,8 +12,9 @@
 
 <p>
   <strong>User:</strong>
-  <%= @event.user %>
+  <%= @event.users %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Tasks', edit_task_path(@event) %>
+<%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :events
+  resources :tasks
   resources :choices
   devise_for :users
   
