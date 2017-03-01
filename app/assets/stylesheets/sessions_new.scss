@@ -61,8 +61,8 @@ html {
         font-family: 'CenturyGothic'
 }
 
-h2 {
- 	font-size: 130%;
+h2.registration {
+ 	font-size: 110%;
  	text-align: center;
 	color: black;
 	position: relative;
@@ -84,23 +84,23 @@ h2 {
    font-family: 'CenturyGothic'
 }
 
-.form-control{
-   padding: 9px 30px;
+input.form-control{
+
    position: relative;
-   top: 10px;
+   top: 0px;
    left: 20px;
    height: 5px;
    margin: 5px 5px;
-   width: 400px;
+   width: 450;
    height: 40px;
-   font-family: 'CenturyGothic'
+   font-family: 'CenturyGothic';
 }
 
 .actions{
    background-color: #22BDDD;
    color: white;
    text-align: left;
-   font-size: 120%;
+   font-size: 100%;
    font-family: 'CenturyGothic'
 }
 
