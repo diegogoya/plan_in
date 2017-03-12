@@ -1,5 +1,41 @@
+<%= stylesheet_link_tag 'event_menu', media: 'all' %>
+
 <p id="notice"><%= notice %></p>
 
+<div class="menu">
+ <ul class="collection description">
+    <li class="collection-item avatar event">
+      <img src="https://www.balearia.com/wps/wcm/connect/29be9bb4-a010-450d-80a0-0cba78be8240/1/llauts-tradicion-marinera-formentera.png?MOD=AJPERES&CACHEID=29be9bb4-a010-450d-80a0-0cba78be8240/1" alt="" class="circle">
+      <span class="title_event"><%= @event.name %></span>
+      <p><%= @event.description %><br>
+      </p>
+      <a href="#!" class="secondary-content"></a>
+    </li>
+  </ul>
+ <ul class="collection">
+    <li class="collection-item avatar options">
+      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <span class="title">Invitados</span>
+      <a href="#!" class="secondary-content"></a>
+    </li>
+    <li class="collection-item avatar options">
+      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <span class="title">Alojamiento</span>
+      <a href="#!" class="secondary-content"></a>
+    </li>
+    <li class="collection-item avatar options">
+      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <span class="title">Transporte</span>
+      <a href="#!" class="secondary-content"></a>
+    </li>
+    <li class="collection-item avatar options">
+      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <span class="title">Extras</span>
+      <a href="#!" class="secondary-content">	</a>
+    </li>
+  </ul>
+</div>
+<!--
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -9,12 +45,13 @@
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
+-->
 
-<p>
-  <strong>User:</strong>
-  <%= @event.users %>
-</p>
+<%= form_tag(send_email_path(@event)) do %>
+  <%= text_area_tag(:message, "Email", size: "24x6") %>
+  <%= submit_tag("Enviar Evento") %>
+<% end %>
 
-<%= link_to 'Tasks', edit_task_path(@event) %>
+<%= link_to 'New Tasks', new_event_task_path(@event) %>
 <%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %>

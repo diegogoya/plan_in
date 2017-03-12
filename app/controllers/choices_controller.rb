@@ -10,11 +10,16 @@ class ChoicesController < ApplicationController
   # GET /choices/1
   # GET /choices/1.json
   def show
+    @task = Task.find_by(id: params[:task_id])
+    @event = Event.find_by(id: params[:event_id])
+    @choice = Choice.find_by(id: params[:id])
   end
 
   # GET /choices/new
   def new
     @choice = Choice.new
+    @task = Task.find_by(id: params[:task_id])
+    @event = Event.find_by(id: params[:event_id])
   end
 
   # GET /choices/1/edit
@@ -24,11 +29,12 @@ class ChoicesController < ApplicationController
   # POST /choices
   # POST /choices.json
   def create
-    @choice = Choice.new(choice_params)
-
+    @event = Event.find_by(id: params[:event_id])
+    @task = Task.find_by(id: params[:task_id])
+    @choice = @task.choices.new(choice_params)
     respond_to do |format|
       if @choice.save
-        format.html { redirect_to @choice, notice: 'Choice was successfully created.' }
+        format.html { redirect_to [@event,@task,@choice] }
         format.json { render :show, status: :created, location: @choice }
       else
         format.html { render :new }

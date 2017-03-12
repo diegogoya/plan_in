@@ -28,13 +28,17 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+    if @event.save
+      registration = Registration.new(event_id: @event.id, user_id: current_user.id, role: 1)
+      
+      respond_to do |format|
+        if registration.save
+          format.html { redirect_to @event}
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { render :new }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -44,7 +48,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -58,9 +62,32 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+  end
+
+  def send_email
+    event = Event.find_by(id: params[:id])
+    emails = params[:message]
+    emails_array = emails.split "\r\n"
+    emails_array.each do |email|
+      user = User.find_by(email: email)
+      if !user
+        user = User.create(email: email, password: '123456')
+      end
+        Registration.create(event_id: event.id, user_id: user.id)
+        send_event_invitation(user, event)
+    end
+    redirect_to event_path(event)
+  end
+
+  def send_event_invitation (user, event)
+
+  end
+
+  def public_email
+
   end
 
   private
@@ -71,6 +98,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :user_id)
+      params.require(:event).permit(:name, :description)
     end
 end

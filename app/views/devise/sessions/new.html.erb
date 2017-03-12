@@ -29,7 +29,7 @@
     <%= f.password_field :password, placeholder: "Contraseña", autocomplete: "off", class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="box_registration">
     <%= f.submit "Registrate", class: 'form-control actions' %>
   </div>
 <% end %>
@@ -53,10 +53,11 @@
   
   <% if devise_mapping.rememberable? -%>
     <div class="row forgetpassword">
-      <div class="col-md-1"> <%= f.check_box :remember_me%> </div>
-      <div class="col-md-5"> <%= f.label "Recordar contraseña"%></div>
+      <div class="col-md-4">  <input type="checkbox" id="test5" />
+          <label for="test5"><%= f.check_box :remember_me%></label> <%= f.label "Recordar contraseña"%></div>
       <div class="col-md-6"> <%= render "devise/shared/links" %></div>
     </div>
+      
   <% end -%>
 
 <% end %>

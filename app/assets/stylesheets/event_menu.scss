@@ -1,0 +1,49 @@
+div.menu{
+  width: 25%;
+}
+
+a.btn-floating.btn-large.waves-effect.waves-light{
+    top: 13px;
+    width: 40px;
+    height: 40px;
+    left: 296px;
+    background-color: #1de9b6;
+    font-family: 'CenturyGothic';
+}
+
+i.material-icons {
+  position: relative;
+  top: -7px;
+}
+
+.collection .collection-item.avatar .title{
+	position: relative;
+    left: -33px;
+    top: 20px;
+}
+
+li.collection-item.avatar.options{
+	left: 0px;
+	padding: 6px 7px;
+	font-family: 'CenturyGothic';
+}
+
+li.collection-item.avatar.event{
+	padding: 41px 97px;
+	font-family: 'CenturyGothic';
+}
+
+body {
+	background-color: #eeeeee;
+}
+
+ul.collection.description{
+	margin-top:-14px;
+}
+
+.collection .collection-item.avatar .circle{
+	position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 29px;
+}

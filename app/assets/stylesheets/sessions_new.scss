@@ -87,13 +87,33 @@ h2.registration {
 input.form-control{
 
    position: relative;
-   top: 0px;
+   top: 5px;
    left: 20px;
    height: 5px;
    margin: 5px 5px;
-   width: 450;
    height: 40px;
    font-family: 'CenturyGothic';
+}
+
+input[type='text'].form-control, input[type='email'].form-control, input[type='password'].form-control {
+   position: relative;
+   top: 5px;
+   left: 20px;
+   height: 5px;
+   margin: 5px 5px;
+   width: 400px;
+   height: 40px;
+   border-radius: 5px;
+   font-family: 'CenturyGothic';
+   border: 3px;
+   box-shadow: 1px 1px 1px 1px grey;
+   text-align: left;
+   padding-left: 15px; 
+}
+
+input[type="submit"].form-control {
+  width: 415px;
+  border-radius: 5px;
 }
 
 .actions{
@@ -101,7 +121,9 @@ input.form-control{
    color: white;
    text-align: left;
    font-size: 100%;
-   font-family: 'CenturyGothic'
+   font-family: 'CenturyGothic';
+   border-style: none;
+   box-shadow: 1px 1px 1px 1px grey;
 }
 
 .fieldremember {
@@ -115,25 +137,56 @@ input.form-control{
     font-family: 'CenturyGothic'
  }
 
-.check{
+
+label[type="checkbox"].before, label[type="checkbox"]:not(.filled-in).after{
     position: relative; 
     left: 20px;
     top: 10px;
     font-family: 'CenturyGothic'
 }
 
-.forgetpassword {
-  margin-top: 25px;
+a.forgetpassword {
+  margin-top: 5px;
   margin-left: 5px;
   margin-right: 5px;
   font-family: 'CenturyGothic';
+  font-size: 80%;
+  position: relative;
+  left: 250px;
+  top: -11px;
 }
 
 .forgetpassword:visited {
   color: #22BDDD;
+
 }
 
+.box_registration{
+  height: 70px;
+}
 
+label{
+  position: relative;
+  left: 70px;
+  top: 10px;
+}
 
+.forgetpassword [type="checkbox"]+label:before{
+  position: absolute;
+  left: 0px;
+  top: 10px;
+}
+
+.forgetpassword [type="checkbox"]:checked+label:before{
+  position: absolute;
+  left: 0px;
+  top: 7px;
+}
+
+.row.forgetpassword{
+  position: relative;
+  left: -25px;
+  top: -10px;
+} 
 
 

@@ -1,5 +1,12 @@
-<h1>New Event</h1>
+<%= stylesheet_link_tag    'events', media: 'all' %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
+<div class="create_event">
+   <h1 class="tittle">Crear Plan</h1>
+       <div class="line"></div>
+        <div class="line2"></div>
+       <img src="https://www.balearia.com/wps/wcm/connect/29be9bb4-a010-450d-80a0-0cba78be8240/1/llauts-tradicion-marinera-formentera.png?MOD=AJPERES&CACHEID=29be9bb4-a010-450d-80a0-0cba78be8240/1"></img>
+	<%= render 'form', event: @event %>
+	<%= link_to 'X', root_path, class: 'back_link' %>
+</div>

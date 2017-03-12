@@ -1,0 +1,9 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<%= link_to 'New Choice', new_event_task_choice_path(@event, @task) %>
+<%= link_to 'Edit', edit_event_task_path(@task) %> 
+<%= link_to 'Back', new_event_task_path %>

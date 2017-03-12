@@ -1,5 +1,22 @@
+<%= stylesheet_link_tag    'choices', media: 'all' %>
+
 <p id="notice"><%= notice %></p>
 
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= @choice.name %><i class="material-icons right">more_vert</i></span>
+      <p><a href=<%= @choice.url %>>Ver Enlace</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= @choice.price%>€<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+
+<!--
 <p>
   <strong>Name:</strong>
   <%= @choice.name %>
@@ -19,6 +36,7 @@
   <strong>Price:</strong>
   <%= @choice.price %>
 </p>
+-->
 
-<%= link_to 'Edit', edit_choice_path(@choice) %> |
-<%= link_to 'Back', choices_path %>
+<%= link_to 'Edit', edit_event_task_choice_path(@choice) %> |
+<%= link_to 'Back', new_event_task_choice_path %>
