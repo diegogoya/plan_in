@@ -11,7 +11,13 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-  
+    registration = Registration.find_by(event_id: params[:id], user_id: current_user.id)
+    if registration.role == "admin"
+       render :show
+    else
+       render :show_guest
+    end
+
   end
 
   # GET /events/new
@@ -77,13 +83,13 @@ class EventsController < ApplicationController
         user = User.create(email: email, password: '123456')
       end
         Registration.create(event_id: event.id, user_id: user.id)
-        send_event_invitation(user, event)
+        WelcomeMailer.event_email(user, event).deliver_now
     end
     redirect_to event_path(event)
   end
 
   def send_event_invitation (user, event)
-
+    
   end
 
   def public_email

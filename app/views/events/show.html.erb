@@ -1,7 +1,5 @@
 <%= stylesheet_link_tag 'event_menu', media: 'all' %>
 
-<p id="notice"><%= notice %></p>
-
 <div class="menu">
  <ul class="collection description">
     <li class="collection-item avatar event">
@@ -12,6 +10,7 @@
       <a href="#!" class="secondary-content"></a>
     </li>
   </ul>
+
  <ul class="collection">
     <li class="collection-item avatar options">
       <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
@@ -19,22 +18,25 @@
       <a href="#!" class="secondary-content"></a>
     </li>
     <li class="collection-item avatar options">
-      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <a data-type="alojamiento" class="btn-floating btn-large waves-effect waves-light js-add-task"><i class="material-icons">add</i></a>
       <span class="title">Alojamiento</span>
       <a href="#!" class="secondary-content"></a>
     </li>
     <li class="collection-item avatar options">
-      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <a data-type="transporte" class="btn-floating btn-large waves-effect waves-light js-add-task"><i class="material-icons">add</i></a>
       <span class="title">Transporte</span>
       <a href="#!" class="secondary-content"></a>
     </li>
     <li class="collection-item avatar options">
-      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+      <a data-type="extras" class="btn-floating btn-large waves-effect waves-light js-add-task"><i class="material-icons">add</i></a>
       <span class="title">Extras</span>
       <a href="#!" class="secondary-content">	</a>
     </li>
   </ul>
 </div>
+
+<div class="choiceForm"> hola natalia </div>
+
 <!--
 <p>
   <strong>Name:</strong>

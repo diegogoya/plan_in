@@ -1,4 +1,6 @@
-<%= form_for [@event,@task,@choice], url: event_task_choices_path  do |f| %>
+
+<h2>Añadir choice a <%= @task.name %></h2>
+<%= form_for [@event,@task,@choice] do |f| %>
   <% if @choice.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@choice.errors.count, "error") %> prohibited this choice from being saved:</h2>

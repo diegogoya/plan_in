@@ -16,9 +16,10 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = Task.create(name: params[:type], event_id: params[:event_id])
+    @choice = Choice.new
     @event = Event.find_by(id: params[:event_id])
-
+    render partial: "/choices/form"
   end
 
   # GET /tasks/1/edit
