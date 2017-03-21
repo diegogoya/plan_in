@@ -1,39 +1,60 @@
 <%= stylesheet_link_tag 'event_menu', media: 'all' %>
 
-<div class="menu">
- <ul class="collection description">
-    <li class="collection-item avatar event">
-      <img src="https://www.balearia.com/wps/wcm/connect/29be9bb4-a010-450d-80a0-0cba78be8240/1/llauts-tradicion-marinera-formentera.png?MOD=AJPERES&CACHEID=29be9bb4-a010-450d-80a0-0cba78be8240/1" alt="" class="circle">
-      <span class="title_event"><%= @event.name %></span>
-      <p><%= @event.description %><br>
-      </p>
-      <a href="#!" class="secondary-content"></a>
+  <ul id="slide-out" class="side-nav js-menu">
+    <li><div class="userView">
+      <div class="background">
+        <img class="menu" src="http://cdn.playbuzz.com/cdn/135533e4-8b11-4af0-8638-6525eff069e0/9d2f35d6-a75a-44e7-8259-6ff1abb00ce4.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="https://www.balearia.com/wps/wcm/connect/29be9bb4-a010-450d-80a0-0cba78be8240/1/llauts-tradicion-marinera-formentera.png?MOD=AJPERES&CACHEID=29be9bb4-a010-450d-80a0-0cba78be8240/1"></a>
+      <a href="#!name"><span class="white-text name"><%= @event.name %></span></a>
+      <a href="#!email"><span class="white-text email"><%= @event.description %></span></a>
+    </div></li>
+    <li class="user"><a href="#modal1">Invitados</a><i class="material-icons user">perm_identity</i></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Opciones</a></li>
+    <li class="task"><a class="waves-effect" href="#!">Transporte</a>
+        <div data-type="transporte" class="switch js-add-task">
+          <label>
+            <input type="checkbox">
+            <span class="lever"></span>
+          </label>
+        </div>
+        
+    </li>
+    <li class="task"><a class="waves-effect">Alojamiento </a>
+        <div data-type="alojamiento" class="switch js-add-task">
+          <label>
+             <input type="checkbox">
+             <span class="lever"></span>
+          </label>
+         </div>
+        
+    </li>
+    <li class="task"><a class="waves-effect" href="#!">Extras</a>
+        <div data-type="extras" class="switch js-add-task">
+          <label>
+            <input type="checkbox">
+            <span class="lever"></span>
+          </label>
+        </div>
     </li>
   </ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
- <ul class="collection">
-    <li class="collection-item avatar options">
-      <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
-      <span class="title">Invitados</span>
-      <a href="#!" class="secondary-content"></a>
-    </li>
-    <li class="collection-item avatar options">
-      <a data-type="alojamiento" class="btn-floating btn-large waves-effect waves-light js-add-task"><i class="material-icons">add</i></a>
-      <span class="title">Alojamiento</span>
-      <a href="#!" class="secondary-content"></a>
-    </li>
-    <li class="collection-item avatar options">
-      <a data-type="transporte" class="btn-floating btn-large waves-effect waves-light js-add-task"><i class="material-icons">add</i></a>
-      <span class="title">Transporte</span>
-      <a href="#!" class="secondary-content"></a>
-    </li>
-    <li class="collection-item avatar options">
-      <a data-type="extras" class="btn-floating btn-large waves-effect waves-light js-add-task"><i class="material-icons">add</i></a>
-      <span class="title">Extras</span>
-      <a href="#!" class="secondary-content">	</a>
-    </li>
-  </ul>
-</div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Introduce tus Invitados</h4>
+      <p><%= form_tag(send_email_path(@event)) do %>
+        <%= text_area_tag(:message, "Email", size: "24x6") %>
+        <div>
+          <%= submit_tag "Enviar", class: 'btn waves-effect waves-light'%>
+          <i class="material-icons right">send</i>
+        </div> 
+      <% end %></p>
+    </div>
+  </div>
+
 
 <div class="choiceForm"> hola natalia </div>
 

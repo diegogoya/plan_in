@@ -16,7 +16,10 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
+    @task = Task.find_by(name: params[:type], event_id: params[:event_id])
+    if !@task 
     @task = Task.create(name: params[:type], event_id: params[:event_id])
+    end
     @choice = Choice.new
     @event = Event.find_by(id: params[:event_id])
     render partial: "/choices/form"

@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     registration = Registration.find_by(event_id: params[:id], user_id: current_user.id)
+    @event = Event.find_by(id: params[:id])
     if registration.role == "admin"
        render :show
     else

@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'event_menu', media: 'all' %>
 
+<% alojamiento = @event.tasks.detect {|t| t.name == "alojamiento"} %>
 
+<% puts alojamiento %>
 <div class="menu">
  <ul class="collection description">
     <li class="collection-item avatar event">
@@ -11,3 +13,27 @@
       <a href="#!" class="secondary-content"></a>
     </li>
   </ul>
+
+  <p> Transporte </p>
+
+  <p> Alojamiento </p>
+  <% alojamiento.choices.each do |choice| %>
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
+      <p><a href=<%= choice.url %>>Ver Enlace</a>
+       <input type="checkbox" id="test5" />
+       <label for="test5"></label>
+      <p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= choice.price%>€<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+  <% end %>
+
+  <p> Extras </p>

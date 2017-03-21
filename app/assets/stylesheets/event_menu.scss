@@ -4,14 +4,13 @@ div.menu{
 }
 
 a.btn-floating.btn-large.waves-effect.waves-light{
-    top: 13px;
-    width: 40px;
-    height: 40px;
-    left: 296px;
-    background-color: #1de9b6;
-    font-family: 'CenturyGothic';
+    position: absolute;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    left: 1300px;
 }
-
+//
 i.material-icons {
   position: relative;
   top: -7px;
@@ -55,4 +54,47 @@ div.choiceForm{
     background-color: white;
     padding: 10px;
     margin-right: 480px;
+}
+
+img.menu{
+    width: 300px;
+    height: auto;
+}
+ul.side-nav {
+    top: 64px;
+}
+
+#sidenav-overlay{
+    top: 64px;
+}
+
+i.material-icons.user{
+        position: relative;
+    top: -41px;
+    left: 250px;
+}
+
+li.user{
+    height: 54px;
+}
+
+li.task div.switch{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+}
+
+li.task{
+    position: relative;
+}
+
+div.card [type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+    top: 9px;
+    left: 216px;
+}
+
+h4 {
+    font-size: 120%;
+    font-family: 'CenturyGothic';
 }
