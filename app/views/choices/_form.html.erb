@@ -1,5 +1,5 @@
 
-<h2>Añadir choice a <%= @task.name %></h2>
+<h2><%= @task.name %></h2>
 <%= form_for [@event,@task,@choice] do |f| %>
   <% if @choice.errors.any? %>
     <div id="error_explanation">
@@ -34,6 +34,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Añadir" %>
   </div>
 <% end %>

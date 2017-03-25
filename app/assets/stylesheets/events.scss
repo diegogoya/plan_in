@@ -81,3 +81,18 @@ a.back_link{
     left: 441px;
     color: grey;
 }
+ 
+div.card {
+  display: inline-block;
+  width: 20%;
+}
+
+div.card [type="radio"]+label:before, [type="radio"]:not(.filled-in)+label:after {
+    top: 9px;
+    left: 155px;
+}
+
+div.card [type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+    top: 9px;
+    left: 155px;
+}

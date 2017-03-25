@@ -1,8 +1,17 @@
-<%= stylesheet_link_tag 'event_menu', media: 'all' %>
+<%= stylesheet_link_tag 'events', media: 'all' %>
+
+<% transporte = @event.tasks.detect {|t| t.name == "transporte"} %>
+
+<% puts transporte %>
 
 <% alojamiento = @event.tasks.detect {|t| t.name == "alojamiento"} %>
 
 <% puts alojamiento %>
+
+<% extras = @event.tasks.detect {|t| t.name == "extras"} %>
+
+<% puts extras %>
+
 <div class="menu">
  <ul class="collection description">
     <li class="collection-item avatar event">
@@ -13,11 +22,10 @@
       <a href="#!" class="secondary-content"></a>
     </li>
   </ul>
-
+</div>
   <p> Transporte </p>
 
-  <p> Alojamiento </p>
-  <% alojamiento.choices.each do |choice| %>
+  <% transporte.choices.each_with_index do |choice, index| %>
   <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
@@ -25,15 +33,57 @@
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
       <p><a href=<%= choice.url %>>Ver Enlace</a>
-       <input type="checkbox" id="test5" />
-       <label for="test5"></label>
+       <input type="radio" class="option" name="transport-option" id='<%= "transport#{index}"%>' />
+       <label for='<%= "transport#{index}"%>''></label>
       <p>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= choice.price%>€<i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4" id='<%= "transport#{index}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+  <% end %>
+
+  <p> Alojamiento </p>
+  <% alojamiento.choices.each_with_index do |choice, index| %>
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
+      <p><a href=<%= choice.url %>>Ver Enlace</a>
+       <input type="radio" class="option" name="accomodation-option" id='<%= "accommodation#{index}"%>' />
+       <label for='<%= "accommodation#{index}"%>'></label>
+      <p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4" id='<%= "accommodation#{index}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
   </div>
   <% end %>
 
   <p> Extras </p>
+
+   <% extras.choices.each_with_index do |choice, index| %>
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
+      <p><a href=<%= choice.url %>>Ver Enlace</a>
+       <input type="checkbox" class="option" name='<%= "#{choice.name}"%>' id='<%= "#{choice.name.gsub(" ", "-")}"%>'>
+       <label for='<%= "#{choice.name.gsub(" ", "-")}"%>'></label>
+      <p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4" id='<%= "#{choice.name.gsub(" ", "-")}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+  </div>
+  <% end %>
+
+<p> Total <span id="total-price">0</span>€</p>
+

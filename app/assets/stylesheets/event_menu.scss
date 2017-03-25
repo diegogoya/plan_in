@@ -49,11 +49,13 @@ ul.collection.description{
 }
 div.choiceForm{
     display: inline-block;
-    float: right;
-    width: 40%;
-    background-color: white;
+    width: 100%;
+    background-color: transparent;
     padding: 10px;
     margin-right: 480px;
+    height: 45px;
+    position: relative;
+    margin-bottom: 150px;
 }
 
 img.menu{
@@ -97,4 +99,16 @@ div.card [type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label
 h4 {
     font-size: 120%;
     font-family: 'CenturyGothic';
+    text-align: center;
+}
+i.material-icons.right{
+    top: -1px;
+    left: 14px;
+}
+div.options{
+    width: 100%;
+    background-color: transparent;
+    height: 149px;
+    position: relative;
+    top: 39px;
 }

@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'choices', media: 'all' %>
+
+<%= form_for [@event,@task,@choice] do |f| %>
+  <% if @choice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@choice.errors.count, "error") %> prohibited this choice from being saved:</h2>
+
+      <ul>
+      <% @choice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <div class="row">
+       <div class="input-field col s3 field">
+          <i class="material-icons prefix">room</i>
+          <input id="icon_prefix" type="text" name="choice[name]" id="choice_name" class="validate">
+          <label for="icon_prefix" name="choice[name]" id="choice_name">Alojamiento</label>
+        </div>
+        <div class="input-field col s3 field">
+          <i class="material-icons prefix">language</i>
+          <input id="icon_telephone" type="text" name="choice[url]" id="choice_url" class="validate">
+          <label for="icon_telephone" name="choice[url]" id="choice_url" >Url</label>
+        </div>
+        <div class="input-field col s3 field">
+          <i class="material-icons prefix">payment</i>
+          <input id="icon_telephone" type="text" name="choice[price]" id="choice_price" class="validate">
+          <label for="icon_telephone" name="choice[price]" id="choice_price">Precio</label>
+        </div>
+        
+    <div class="col s3">
+      <button type="submit" name="commit" class="waves-effect waves-light btn">Añadir alojamiento<i class="material-icons right">add</i></button>
+   </div> 
+
+<% end %>

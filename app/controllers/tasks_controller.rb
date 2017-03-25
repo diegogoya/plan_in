@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+  class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -18,11 +18,23 @@ class TasksController < ApplicationController
   def new
     @task = Task.find_by(name: params[:type], event_id: params[:event_id])
     if !@task 
-    @task = Task.create(name: params[:type], event_id: params[:event_id])
+      @task = Task.create(name: params[:type], event_id: params[:event_id])
     end
-    @choice = Choice.new
-    @event = Event.find_by(id: params[:event_id])
-    render partial: "/choices/form"
+    if params[:type] == "transporte"
+      @choice = Choice.new
+      @event = Event.find_by(id: params[:event_id])
+      render partial: "/choices/form_transport"
+    end
+    if params[:type] == "alojamiento"
+      @choice = Choice.new
+      @event = Event.find_by(id: params[:event_id])
+      render partial: "/choices/form_accommodation"
+    end
+    if params[:type] == "extras"
+      @choice = Choice.new
+      @event = Event.find_by(id: params[:event_id])
+      render partial: "/choices/form_extras"
+    end
   end
 
   # GET /tasks/1/edit
