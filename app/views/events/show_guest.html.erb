@@ -12,78 +12,75 @@
 
 <% puts extras %>
 
-<div class="menu">
- <ul class="collection description">
-    <li class="collection-item avatar event">
-      <img src="https://www.balearia.com/wps/wcm/connect/29be9bb4-a010-450d-80a0-0cba78be8240/1/llauts-tradicion-marinera-formentera.png?MOD=AJPERES&CACHEID=29be9bb4-a010-450d-80a0-0cba78be8240/1" alt="" class="circle">
-      <span class="title_event"><%= @event.name %></span>
-      <p><%= @event.description %><br>
-      </p>
-      <a href="#!" class="secondary-content"></a>
-    </li>
-  </ul>
+<div class="header-event">
+      <p class="title-event-1"><br><%= @event.name %></br></p>
+      <p class="title-event-2"><%= @event.description %></p>
+      <p class="title-event-3"> Total <span id="total-price">0</span>€</p>
+      <a class="waves-effect waves-light btn-large" id="js-send-options"><i class="material-icons right">send</i>Enviar Evento</a>
 </div>
-  <p> Transporte </p>
 
-  <% transporte.choices.each_with_index do |choice, index| %>
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+  <ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s3"><a href="#test-swipe-1">Transporte</a></li>
+    <li class="tab col s3"><a class="active" href="#test-swipe-2">Alojamiento</a></li>
+    <li class="tab col s3"><a href="#test-swipe-3">Extras</a></li>
+  </ul>
+  <div id="test-swipe-1" class="col s12">
+    <% transporte.choices.each_with_index do |choice, index| %>
+    <div class="card small">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
+        <p><a href=<%= choice.url %>>Ver Enlace</a>
+         <input type="radio" class="option" name="transport-option" value="<%= choice.id %>" id='<%= "transport#{index}"%>' />
+         <label for='<%= "transport#{index}"%>''></label>
+        <p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4" id='<%= "transport#{index}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
-      <p><a href=<%= choice.url %>>Ver Enlace</a>
-       <input type="radio" class="option" name="transport-option" id='<%= "transport#{index}"%>' />
-       <label for='<%= "transport#{index}"%>''></label>
-      <p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4" id='<%= "transport#{index}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
+    <% end %>    
   </div>
-  <% end %>
-
-  <p> Alojamiento </p>
-  <% alojamiento.choices.each_with_index do |choice, index| %>
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
-      <p><a href=<%= choice.url %>>Ver Enlace</a>
-       <input type="radio" class="option" name="accomodation-option" id='<%= "accommodation#{index}"%>' />
-       <label for='<%= "accommodation#{index}"%>'></label>
-      <p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4" id='<%= "accommodation#{index}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
+  <div id="test-swipe-2" class="col s12">
+    <% alojamiento.choices.each_with_index do |choice, index| %>
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+        </div>
+      <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
+          <p><a href=<%= choice.url %>>Ver Enlace</a>
+           <input type="radio" class="option" name="accomodation-option" value="<%= choice.id %>" id='<%= "accommodation#{index}"%>' />
+           <label for='<%= "accommodation#{index}"%>'></label>
+          <p>
+       </div>
+         <div class="card-reveal">
+         <span class="card-title grey-text text-darken-4" id='<%= "accommodation#{index}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
+         <p>Here is some more information about this product that is only revealed once clicked on.</p>
+       </div>
+     </div>
+    <% end %>
   </div>
-  <% end %>
-
-  <p> Extras </p>
-
-   <% extras.choices.each_with_index do |choice, index| %>
-  <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+  <div id="test-swipe-3" class="col s12">
+    <% extras.choices.each_with_index do |choice, index| %>
+     <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://a0.muscache.com/im/pictures/96089873/8f12a580_original.jpg?aki_policy=x_large">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
+        <p><a href=<%= choice.url %>>Ver Enlace</a>
+         <input type="checkbox" class="option" name='<%= "#{choice.name}"%>' value="<%= choice.id %>" id='<%= "#{choice.name.gsub(" ", "-")}"%>'>
+         <label for='<%= "#{choice.name.gsub(" ", "-")}"%>'></label>
+        <p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4" id='<%= "#{choice.name.gsub(" ", "-")}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= choice.name %><i class="material-icons right">more_vert</i></span>
-      <p><a href=<%= choice.url %>>Ver Enlace</a>
-       <input type="checkbox" class="option" name='<%= "#{choice.name}"%>' id='<%= "#{choice.name.gsub(" ", "-")}"%>'>
-       <label for='<%= "#{choice.name.gsub(" ", "-")}"%>'></label>
-      <p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4" id='<%= "#{choice.name.gsub(" ", "-")}-price"%>'><%= choice.price%>€<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
+   <% end %>
   </div>
-  <% end %>
-
-<p> Total <span id="total-price">0</span>€</p>
-

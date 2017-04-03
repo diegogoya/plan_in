@@ -97,6 +97,20 @@ class EventsController < ApplicationController
 
   end
 
+  def save_options
+      options = params[:options]
+      options.each do |o|
+       option = Choice.find_by(id: o)
+        if option.counter 
+          option.counter = option.counter+1
+        else
+          option.counter = 1
+        end
+        option.save
+      end
+      render plain: "ok"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

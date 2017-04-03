@@ -2,7 +2,24 @@ a.btn-floating.btn-large.waves-effect.waves-light {
    position: relative;
    left: 1350px;
    text-size: 170%;
+   top: 18px;
 }
+div.card.horizontal{
+  width: 100%;
+  margin: 15px;
+}
+
+div.col.s12.m7{
+    width: 30%;
+    display: inline-block;
+    position: relative;
+    margin: -2.5rem 16px 1.5rem 4px;
+    left: 33px;
+}
+.card.horizontal .card-image img{
+	height: 147px;
+}
+
 /*
 div.nav-wrapper {
    background-color: #4db6ac;

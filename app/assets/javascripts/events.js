@@ -24,6 +24,8 @@ $(document).ready(function(){
       function createChoice (type) {
           return function (data){
               $('.choiceForm#'+type).html(data);
+              //$('#talks-collapsibe').append(data);
+              console.log(data)
             }
       }
       // Initialize collapse button
@@ -51,14 +53,40 @@ $(document).ready(function(){
     $('#total-price').text(total);
   }
 
-
-  // $('input[name="option"]').on('change', function(e){
-  //     console.log(e.currentTarget);
-  //     var price = parseFloat($("#"+e.currentTarget.id+"-price").text().split("€")[0])
-  //     if (price){
-  //     var total = parseFloat($('#total-price').text()) + price;
-  //     var newTotal = price + total;
-  //     $('#total-price').text(newTotal);
-  //   }
-  //})
+  $('#js-send-options').on('click', function(){
+      var options = []
+      var option_elements = $('input:checked');
+      option_elements.each(function(){
+        options.push($(this).val())
+      })
+        $.ajax({
+              method: 'post',
+              url:'/events/save_options',
+              data: {options: options},
+              datatype: 'json', 
+              success: function(){
+                  Materialize.toast('Evento enviado correctamente!', 3000, 'rounded')
+              },
+              error: function (error){
+                      console.log(error.responseText);
+              }
+        })
+  })
+  $('.choiceForm').on('click', 'form#new_choice button', function(e){
+    e.preventDefault()
+      var option_type = $(this).attr('id')
+      console.log(option_type)
+        // $.ajax({
+        //       method: 'post',
+        //       url:'/events/save_options',
+        //       data: {options: options},
+        //       datatype: 'json', 
+        //       success: function(){
+        //           Materialize.toast('Evento enviado correctamente!', 3000, 'rounded')
+        //       },
+        //       error: function (error){
+        //               console.log(error.responseText);
+        //       }
+      })
+  $('ul.tabs').tabs();
 })

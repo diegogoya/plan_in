@@ -4,18 +4,33 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-    <div class="row">
 
-      <div class="col s3">
-        <!-- Grey navigation panel -->
+  
+<div class="row">
+	<a class="btn-floating btn-large waves-effect waves-light green" href="/events/new" style="
+	"><i class="material-icons">add</i></a>
+</div>
+<div class="row">
+    <% @events.each do |event| %>
+    <div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="http://lorempixel.com/100/190/nature/6">
       </div>
-
-      <div class="col s9">
-        <!-- Teal page content  -->
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= event.name %></p>
+          <td><%= event.description %></td>
+		  <!--  <td><%= event.users %></td> -->
+        </div>
+        <div class="card-action">
+          <td><%= link_to 'Show', event %>
+          <%= link_to 'Edit', edit_event_path(event) %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
       </div>
-
     </div>
-    
-<%= link_to "+", new_event_path, class: 'btn-floating btn-large waves-effect waves-light green'%>
+  </div>
 
-
+  <% end %>
+  </div>

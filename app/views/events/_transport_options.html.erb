@@ -1,0 +1,10 @@
+<% if @event.tasks.length>0 %>
+<% transporte = @event.tasks.detect {|t| t.name == "transporte"} %>
+<% puts transporte %>
+  <div class="js-transport-cards">
+    <% transporte.choices.each_with_index do |choice, index| %>
+      <% @choice=choice %>
+      <%= render '/choices/option_card', choice: @choice %>
+    <% end %>
+  </div>
+<% end %>

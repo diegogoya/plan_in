@@ -112,3 +112,37 @@ div.options{
     position: relative;
     top: 39px;
 }
+div.card {
+  display: inline-block;
+  width: 20%;
+}
+div.card [type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after {
+    top: 9px;
+    left: 155px;
+}
+i.material-icons {
+    position: relative;
+    top: 9px;
+    left: 2px;
+}
+.chip{
+    padding: 0px 20px;
+}
+a.btn-floating.btn-large.waves-effect.waves-light.green{
+    position:relative;
+    left:92%;
+    float: left;
+    top: 5px;
+}
+i.material-icons.options {
+    position: relative;
+    left: 10px;
+    top: -2px;
+}
+.collapsible-header {
+    line-height: 4rem;
+}
+.collapsible-body {
+padding: 1rem;
+}
+
