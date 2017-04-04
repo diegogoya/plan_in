@@ -68,72 +68,58 @@
       </div> 
     </div>
   </div>
+
         <ul class="collapsible" id="tasks-collapsible" data-collapsible="expandable">
-        <li>
+        <li id="transporte">
           <div class="collapsible-header"><i class="material-icons">navigation</i>Transporte
             <!-- Modal Trigger -->
-            <a class="btn-floating btn-large waves-effect waves-light green" href="#modal1"><i class="material-icons options">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="#modal-transport"><i class="material-icons options">add</i></a>
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
+            <div id="modal-transport" class="modal">
               <div class="modal-content">
                 <h4> Añade un transporte </h4>
-                <p>A bunch of text</p>
+                  <div class="choiceForm" id="transporte">
+                   <div class="options"></div>
+                  </div>
               </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
-              </div>
+
             </div>
           </div>
           <div class="collapsible-body"><span><%= render 'transport_options', event: @event %></span></div>
         </li>
-        <li>
+        <li id="alojamiento">
           <div class="collapsible-header"><i class="material-icons">place</i>Alojamiento
            <!-- Modal Trigger -->
-            <a class="btn-floating btn-large waves-effect waves-light green" href="#modal1"><i class="material-icons options">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="#modal-accommodation"><i class="material-icons options">add</i></a>
             <!-- Modal Structure -->
-              <div id="modal1" class="modal">
+              <div id="modal-accommodation" class="modal">
                 <div class="modal-content">
-                  <h4> Añade un transporte </h4>
-                  <p>A bunch of text</p>
-                </div>
-                <div class="modal-footer">
-                  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
+                  <h4> Añade un Alojamiento </h4>
+                    <div class="choiceForm" id="alojamiento"> 
+                     <div class="options"></div>
+                    </div>
                 </div>
               </div>
             </div>
           <div class="collapsible-body"><span><%= render 'accommodation_options', event: @event %></span></div>
         </li>
-        <li>
+        <li id="extras">
           <div class="collapsible-header"><i class="material-icons">redeem</i>Extras
            <!-- Modal Trigger -->
-            <a class="btn-floating btn-large waves-effect waves-light green" href="#modal1"><i class="material-icons options">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="#modal-extra"><i class="material-icons options">add</i></a>
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
+            <div id="modal-extra" class="modal">
               <div class="modal-content">
-                <h4> Añade un transporte </h4>
-                <p>A bunch of text</p>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Añadir</a>
+                <h4> Añade un Extra </h4>
+                  <div class="choiceForm" id="extras">  
+                   <div class="options"></div>
+                  </div>
               </div>
             </div>
           </div>
           <div class="collapsible-body"><span><%= render 'extras_options', event: @event %></span></div>
         </li>
       </ul>
-
-
-
-  <div class="choiceForm" id="transporte">
-    <div class="options"></div>
-  </div>
-
-  <div class="choiceForm" id="alojamiento"> 
-    <div class="options"></div>
-  </div>
-  <div class="choiceForm" id="extras">  
-    <div class="options"></div>
-  </div>
-
+ <!--
 <%= link_to 'Edit', edit_event_path(@event) %>
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %>-->

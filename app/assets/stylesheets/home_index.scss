@@ -17,7 +17,10 @@ div.col.s12.m7{
     left: 33px;
 }
 .card.horizontal .card-image img{
-	height: 147px;
+    height: 147px;
+}
+div.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: #02B4D8;
 }
 
 /*

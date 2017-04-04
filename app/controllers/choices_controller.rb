@@ -32,15 +32,7 @@ class ChoicesController < ApplicationController
     @event = Event.find_by(id: params[:event_id])
     @task = Task.find_by(id: params[:task_id])
     @choice = @task.choices.new(choice_params)
-    respond_to do |format|
-      if @choice.save
-        format.html { redirect_to [@event,@task,@choice] }
-        format.json { render :show, status: :created, location: @choice }
-      else
-        format.html { render :new }
-        format.json { render json: @choice.errors, status: :unprocessable_entity }
-      end
-    end
+    render partial: "/choices/option_card"
   end
 
   # PATCH/PUT /choices/1

@@ -24,8 +24,7 @@ $(document).ready(function(){
       function createChoice (type) {
           return function (data){
               $('.choiceForm#'+type).html(data);
-              //$('#talks-collapsibe').append(data);
-              console.log(data)
+              $('.collapsible li#'+type).show();
             }
       }
       // Initialize collapse button
@@ -74,19 +73,24 @@ $(document).ready(function(){
   })
   $('.choiceForm').on('click', 'form#new_choice button', function(e){
     e.preventDefault()
-      var option_type = $(this).attr('id')
-      console.log(option_type)
-        // $.ajax({
-        //       method: 'post',
-        //       url:'/events/save_options',
-        //       data: {options: options},
-        //       datatype: 'json', 
-        //       success: function(){
-        //           Materialize.toast('Evento enviado correctamente!', 3000, 'rounded')
-        //       },
-        //       error: function (error){
-        //               console.log(error.responseText);
-        //       }
+      var option_type = $(this).attr('id');
+      var form = $(this).closest("form");
+      var name = form.find('input[name=name]').val();
+      var url = form.find('input[name=url]').val();
+      var price = form.find('input[name=price]').val();
+        $.ajax({
+              method: 'post',
+              url: form.attr('action'),
+              data: {choice: {name: name, url: url, price: price}},
+              datatype: 'html', 
+              success: function(data){
+                  Materialize.toast('Opcion añadida correctamente!', 3000, 'rounded')
+                  $('li#'+option_type+' .collapsible-body').append(data)
+              },
+              error: function (error){
+                      console.log(error.responseText);
+              }
+         })
       })
   $('ul.tabs').tabs();
 })

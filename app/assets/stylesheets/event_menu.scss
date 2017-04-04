@@ -139,10 +139,18 @@ i.material-icons.options {
     left: 10px;
     top: -2px;
 }
-.collapsible-header {
-    line-height: 4rem;
-}
-.collapsible-body {
-padding: 1rem;
+ul.collapsible{
+    width: 90%;
+    position: relative;
+    left: 6%;
 }
 
+.collapsible-header {
+  line-height: 4rem;
+}
+.collapsible-body {
+  padding: 1rem;
+}
+.collapsible li{
+  display: none;
+}
